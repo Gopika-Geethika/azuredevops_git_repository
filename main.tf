@@ -1,14 +1,14 @@
-resource "azuredevops_project" "main" {
-  name        = "Project Name"
+resource "azuredevops_project" "project" {
+  name        = "cybersec"
   description = "Project Description"
 }
 
-resource "azuredevops_git_repository" "infra" {
-  project_id = azuredevops_project.main.id
-  name       = "infrastructure"
+resource "azuredevops_git_repository" "Cybersec" {
+  project_id = azuredevops_project.project.id
+  name       = "Cybersec Infra"
   initialization {
-    init_type   = "Import"
+    init_type = "Import"
     source_type = "Git"
-    source_url  = "https://github.com/markti/azdo-terraform-template-multi-stage.git"
+    source_url  = "https://github.com/microsoft/terraform-provider-azuredevops.git"
   }
 }
